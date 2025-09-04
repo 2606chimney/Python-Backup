@@ -130,14 +130,10 @@ del df
 ## Remove Date Older Than 10 Days
 day_num = dfx['Day'].unique()
 num_day = len(day_num)
-#-- Added on 8/22/2024 --
-if num_day > 10:
-    day_gone = dfx['Day'].iloc[0]
-    df = dfx[dfx['Day'] != day_gone]
-
+day_gone = dfx['Day'].iloc[0]
+df = dfx[dfx['Day'] != day_gone]
 df.reset_index(drop=True, inplace=True)
 del dfx
-#-- End of Addition --
 
 
 #### Saving a Final Results

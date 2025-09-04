@@ -130,8 +130,6 @@ num_day = len(day_num)
 if num_day > 10:
     day_gone = df1['Day'].iloc[0]
     df = df1[df1['Day'] != day_gone]
-else:
-    df = df1.copy()
     
 df = df.drop(columns = ['DateTime', 'Day'], axis=1)
 df.to_csv('UCB_10Days_Query.csv', index=False)

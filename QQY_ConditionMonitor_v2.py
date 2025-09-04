@@ -143,11 +143,8 @@ del df
 ## Remove Date Older Than 10 Days
 day_num = dfx['Day'].unique()
 num_day = len(day_num)
-#-- Added on 8/22/2024 --
-if num_day > 10:
-    day_gone = dfx['Day'].iloc[0]
-    df = dfx[dfx['Day'] != day_gone]
-#-- End of Addition --
+day_gone = dfx['Day'].iloc[0]
+df = dfx[dfx['Day'] != day_gone]
 df.reset_index(drop=True, inplace=True)
 del dfx
 
@@ -353,10 +350,10 @@ for i in range(len(tag_list)):
             
         else: # if Z is not empty
             # IQR
-            Q1 = np.percentile(Z, 25, interpolation = 'midpoint') # Back on this on 8-22-2024
-            Q3 = np.percentile(Z, 75, interpolation = 'midpoint') # Back on this on 8-22-2024
-            #Q1 = np.percentile(Z, 10, interpolation = 'midpoint') # Modified on 1/4/2024
-            #Q3 = np.percentile(Z, 90, interpolation = 'midpoint') # Modified on 1/4/2024
+            #Q1 = np.percentile(Z, 25, interpolation = 'midpoint')
+            #Q3 = np.percentile(Z, 75, interpolation = 'midpoint')
+            Q1 = np.percentile(Z, 10, interpolation = 'midpoint') # Modified on 1/4/2024
+            Q3 = np.percentile(Z, 90, interpolation = 'midpoint') # Modified on 1/4/2024
             IQR = Q3 - Q1
     
             # Upper & lower bound
